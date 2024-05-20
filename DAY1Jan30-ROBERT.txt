@@ -15,19 +15,19 @@ config t
       exec-timeout 0 0
    Int Vlan 1
      no shutdown
-	 ip add 10._.1.2 255.255.255.0
+	 ip add 10.32.1.2 255.255.255.0
 	 description MGMTDATA
    Int Vlan 10
      no shutdown
-	 ip add 10._.10.2 255.255.255.0
+	 ip add 10.32.10.2 255.255.255.0
 	 description WIRELESS
    Int Vlan 50
      no shutdown
-	 ip add 10._.50.2 255.255.255.0
+	 ip add 10.32.50.2 255.255.255.0
 	 description IPCCTV
    Int Vlan 100
      no shutdown
-	 ip add 10._.100.2 255.255.255.0
+	 ip add 10.32.100.2 255.255.255.0
 	 description VOICEVLAN
 
 !@@@LeafSwitchONLY
@@ -380,9 +380,9 @@ route  add  200.0.0.0   mask  255.255.255.0   10.32.1.4
 config t
 dial-peer voice 69 voip
  service rivanaa out-bound
- destination-pattern 1269
- session target ipv4:10.12.100.8
- incoming called-number 1269
+ destination-pattern 3269
+ session target ipv4:10.32.100.8
+ incoming called-number 3269
  dtmf-relay h245-alphanumeric
  codec g711ulaw
  no vad
@@ -405,13 +405,13 @@ application
   param max-time-vm-retry 2
   param voice-mail 1234
   param max-time-call-retry 700
-  param aa-pilot 1269
+  param aa-pilot 3269
  service rivanqueue flash:app-b-acd-3.0.0.2.tcl
   param queue-len 15
-  param aa-hunt1 1200
-  param aa-hunt2 1277
-  param aa-hunt3 1201
-  param aa-hunt4 1255
+  param aa-hunt1 3200
+  param aa-hunt2 3201
+  param aa-hunt3 3277
+  param aa-hunt4 3233
   param queue-manager-debugs 1
   param number-of-hunt-grps 4
 ****************************************************************************
