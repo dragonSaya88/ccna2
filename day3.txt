@@ -88,6 +88,7 @@ config t
 ip route 192.168.1.128 255.255.255.224 10.2.1.1 1
 ip route 192.168.1.130 255.255.255.255 10.2.1.2
 do sh ip route static
+
 p2:
 config t
 int e1/0
